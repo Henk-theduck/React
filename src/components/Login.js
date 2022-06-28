@@ -7,15 +7,15 @@ export default function Login() {
            <Image source={require('../../assets/react-icon.png')}/>
            <TextBox place = 'Digite o usuario' name = "Login"/>
            <TextBox place = 'Digite a sennha' name = "Senha" />
-           <Button name = "Login"/>
+           <Button name = "Fazer Login"/>
            </View>
     </SafeAreaView>);
 }
 
 function TextBox(props){
     return (<View>
-        <Text style = {styles.textStyle} placeholder={props.place}>{props.name}</Text>
-        <TextInput style = {styles.input}/>
+        <Text style = {styles.textStyle}>{props.name}</Text>
+        <TextInput  placeholder={props.place} style = {styles.input}/>
     </View>);
 }
 function Button(props){
@@ -36,12 +36,12 @@ const styles = StyleSheet.create({
     input:{
         flexDirection: 'row',
         width: 332,
+        textDecorationColor: '#000000',
         height: 45,
         borderRadius: 100,
         backgroundColor: '#DCDCDC',
         shadowColor: '#000000',
         shadowOpacity: 15,
-        alignItems: 'center',
         paddingLeft: 20,
         paddingRight:20,
         margin: 15       
