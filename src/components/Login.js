@@ -1,13 +1,17 @@
 import React from "react"
 import { TextInput, View,StyleSheet,Text, TouchableOpacity, Image, SafeAreaView } from "react-native"
 
-export default function Login() {
-    return (<SafeAreaView>
+export default function Login({navigation}) {
+    function proxima(){
+        navigation.navigate('Home');
+    }
+
+    return (<SafeAreaView style = {styles.container}>
         <View style = {styles.container}>
            <Image source={require('../../assets/react-icon.png')}/>
            <TextBox place = 'Digite o usuario' name = "Login"/>
-           <TextBox place = 'Digite a sennha' name = "Senha" />
-           <Button name = "Fazer Login"/>
+           <TextBox place = 'Digite a senha' name = "Senha" />
+           <Button name = "Fazer Login" function = {proxima}/>
            </View>
     </SafeAreaView>);
 }
@@ -15,12 +19,12 @@ export default function Login() {
 function TextBox(props){
     return (<View>
         <Text style = {styles.textStyle}>{props.name}</Text>
-        <TextInput  placeholder={props.place} style = {styles.input}/>
+        <TextInput  placeholder={props.place} style = {styles.input }/>
     </View>);
 }
 function Button(props){
     return(<View>
-        <TouchableOpacity style = {styles.buttonLogin}>
+        <TouchableOpacity style = {styles.buttonLogin} onPress = {props.function} >
             <Text style = {styles.textStyle}>{props.name}</Text>
         </TouchableOpacity>
     </View>);
